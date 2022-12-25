@@ -1,4 +1,4 @@
-package baekjun;
+package level1_입출력과사칙연산;
 
 import java.util.Scanner;
 
