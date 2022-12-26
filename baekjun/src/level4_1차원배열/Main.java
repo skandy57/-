@@ -2,43 +2,28 @@ package level4_1차원배열;
 
 import java.io.*;
 import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-
-import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		int T = sc.nextInt(); // 게임 횟수 T
+		sc.nextLine(); // 입력 버퍼에서 줄바꿈 제거
 
-        // 입력받을 점수의 집합의 개수
-        int n = sc.nextInt();
+		for (int i = 0; i < T; i++) {
+			String game = sc.nextLine(); // 게임 결과
+			int score = 0; // 점수
+			int combo = 0; // 콤보 점수
 
-        for (int i = 0; i < n; i++) {
-            // 점수 집합의 크기
-            int k = sc.nextInt();
-            // 점수 집합
-            int[] arr = new int[k];
-            // 점수 집합의 합
-            int sum = 0;
+			for (int j = 0; j < game.length(); j++) {
+				if (game.charAt(j) == 'O') {
+					combo++; // 콤보 증가
+					score += combo; // 점수 증가
+				} else {
+					combo = 0; // 콤보 초기화
+				}
+			}
 
-            for (int j = 0; j < k; j++) {
-                arr[j] = sc.nextInt();
-                sum += arr[j];
-            }
-            // 점수 집합의 평균
-            double avg = (double) sum / k;
-
-            // 평균 이상인 점수의 개수
-            int count = 0;
-            for (int j = 0; j < k; j++) {
-                if (arr[j] > avg) {
-                    count++;
-                }
-            }
-            // 평균 이상인 점수의 비율
-            double result = (double) count / k * 100;
-            System.out.printf("%.3f%%\n", result);
-        }
-    }
+			System.out.println(score); // 점수 출력
+		}
+	}
 }
