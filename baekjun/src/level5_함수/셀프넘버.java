@@ -1,9 +1,6 @@
-package level4_1차원배열;
+package level5_함수;
 
-import java.io.*;
-import java.util.*;
-
-public class Main {
+public class 셀프넘버 {
     public static void main(String[] args) {
         boolean[] selfNumbers = new boolean[10001];
 
